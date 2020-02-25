@@ -5,16 +5,21 @@ class Counter extends Component {
     super();
     this.state = {
       count: 0,
-    }
-    this.state = {
-        title: "Single Count"
-     }
+      title: "Single Count",
+      isSingle: true
+  }
+
+
   }
   //this is where our methods go
   increment = () => {
     if (this.state.count + 1 <= 20) {
+      var i = 0
+      if (this.state.isSingle == true) {
+        i =1
+      } else i =2
     this.setState ({
-      count: this.state.count + 1
+      count: this.state.count + i
     })
   }
   else
@@ -24,8 +29,12 @@ class Counter extends Component {
 
   decrement = () => {
       if (this.state.count - 1 >= 0) {
+          var i = 0
+          if (this.state.isSingle == true) {
+            i =1
+          } else i =2
     this.setState ({
-      count: this.state.count - 1
+      count: this.state.count - i
     })
   }
   else
@@ -44,12 +53,14 @@ class Counter extends Component {
   changeTitle = () => {
     if (this.state.title == "Single Count" ) {
       this.setState ({
-        title: this.state.title = "Double Count"
+        title: this.state.title = "Double Count",
+        isSingle: this.state.isSingle = false
       })
     }
     else
     this.setState ({
-    title: this.state.title =  "Single Count"
+    title: this.state.title =  "Single Count",
+      isSingle: this.state.isSingle = true
       })
   };
 
